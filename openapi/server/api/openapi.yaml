@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  title: todo-go
+  version: 0.1.0
+servers:
+- url: /
+paths:
+  /todo:
+    get:
+      operationId: getTodoList
+      parameters:
+      - in: query
+        name: limit
+        required: true
+        schema:
+          format: int32
+          maximum: 100
+          type: integer
+      - in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          maximum: 100
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listTodo'
+          description: todo list
+      summary: Get All todo
+    post:
+      operationId: createTodo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/unitTodo'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unitTodo'
+          description: Created
+      summary: Create todo
+  /todo/{todoId}:
+    delete:
+      operationId: deleteTodo
+      responses:
+        "204":
+          description: Deleted
+      summary: Delete todo
+    get:
+      operationId: getTodo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unitTodo'
+          description: todo
+      summary: Get todo
+    put:
+      operationId: updateTodo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/unitTodo'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/unitTodo'
+          description: Updated
+      summary: Update todo
+components:
+  schemas:
+    listTodo:
+      type: object
+    unitTodo:
+      type: object

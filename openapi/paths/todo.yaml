@@ -1,0 +1,41 @@
+get:
+  summary: Get All todo
+  operationId: getTodoList
+  parameters:
+    - name: limit
+      in: query
+      required: true
+      schema:
+        type: integer
+        maximum: 100
+        format: int32
+    - name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        maximum: 100
+        format: int32
+  responses:
+    '200':
+      description: todo list
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/listTodo.yaml'
+post:
+  summary: Create todo
+  operationId: createTodo
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/unitTodo.yaml'
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/unitTodo.yaml'

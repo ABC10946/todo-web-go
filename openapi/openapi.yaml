@@ -1,0 +1,15 @@
+openapi: 3.0.0
+info:
+  title: todo-go
+  version: 0.1.0
+paths:
+  /todo:
+    $ref: './paths/todo.yaml'
+  /todo/{todoId}:
+    $ref: './paths/todo_id.yaml'
+components:
+  schemas:
+    listTodo:
+      $ref: './schemas/listTodo.yaml'
+    unitTodo:
+      $ref: './schemas/unitTodo.yaml'

@@ -1,0 +1,13 @@
+listTodo:
+  type: array
+  items:
+    $ref: "./unitTodo.yaml"
+  example:
+    - todoId: 1
+      title: "title"
+      content: "content"
+      done: false
+    - todoId: 2
+      title: "title"
+      content: "content"
+      done: false

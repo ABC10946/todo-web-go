@@ -1,0 +1,17 @@
+unitTodo:
+  type: object
+  properties:
+    todoId:
+      type: integer
+      format: int32
+    title:
+      type: string
+    content:
+      type: string
+    done:
+      type: bool
+  example:
+    todoId: 1
+    title: "title"
+    content: "content"
+    done: false

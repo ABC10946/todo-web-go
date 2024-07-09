@@ -1,0 +1,33 @@
+put:
+  summary: Update todo
+  operationId: updateTodo
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/unitTodo.yaml'
+  responses:
+    '200':
+      description: Updated
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/unitTodo.yaml'
+delete:
+  summary: Delete todo
+  operationId: deleteTodo
+  responses:
+    '204':
+      description: Deleted
+
+get:
+  summary: Get todo
+  operationId: getTodo
+  responses:
+    '200':
+      description: todo
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/unitTodo.yaml'
